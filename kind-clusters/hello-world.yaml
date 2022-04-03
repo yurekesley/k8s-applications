@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: numeros-por-extenso-deployment
+  name: hello-world
   namespace: default
   labels:
-    app: numeros-por-extenso
+    app: hello-world
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: numeros-por-extenso
+      app: hello-world
   template:
     metadata:
-      name: "numeros-por-extenso"
+      name: hello-world
       namespace: default
       labels:
-        app: "numeros-por-extenso"
+        app: hello-world
     spec:
       containers:
-      - name: numeros-por-extenso
-        image: "yurekesley/numeros-por-extenso:latest"
+      - name: hello-world
+        image: hello-world
         resources:
           limits:
             cpu: 200m

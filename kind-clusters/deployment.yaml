@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: numeros-por-extenso
+  namespace: default
+  labels:
+    app: numeros-por-extenso
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: numeros-por-extenso
+  template:
+    metadata:
+      name: numeros-por-extenso
+      namespace: default
+      labels:
+        app: numeros-por-extenso
+    spec:
+      containers:
+      - name: numeros-por-extenso
+        image: yurekesley/numeros-por-extenso:latest
+        resources:
+          limits:
+            cpu: 200m
+            memory: 500Mi
+          requests:
+            cpu: 100m
+            memory: 200Mi
+        ports:
+        - containerPort:  8080
+          name:  http
+      restartPolicy: Always
