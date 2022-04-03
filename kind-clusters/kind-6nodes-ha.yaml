@@ -1,0 +1,10 @@
+# a cluster with 3 control-plane nodes and 3 workers
+kind: Cluster
+apiVersion: v1
+nodes:
+- role: control-plane
+- role: control-plane
+- role: control-plane
+- role: worker
+- role: worker
+- role: worker
