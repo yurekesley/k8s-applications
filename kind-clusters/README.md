@@ -3,6 +3,8 @@
 
 - Install Kube Control CLI (kubectrl)
 - Install a K8S Cluster Creating Tool - (KIND Kubenetes in Docker)
+- Creating a K8S Mono Cluster
+- Setting Kubectl Cluster Context
 
 # Install Kube Control CLI (kubectrl)
 - Download kubectrl binaries. 
@@ -38,25 +40,31 @@ chmod +x ./kind
 sudo mv ./kind /usr/local/bin/
 ```
 
-
-
-	
-
-=============================================	
-
-#CREATE MONO CLUSTER
+# Creating a K8S Mono Cluster
+- Verify Docker Deamon
+```sh
+sudo /etc/init.d/docker start
+```
+- Create a K8S Mono Cluster with KIND
+```sh
 kind create cluster --name=mono
+```
 
-#DELETE MONO CLUSTER
+### Interacting With Your Cluster
+- List Clusters
+ ```sh
+  kind get clusters
+ ```
+- Delete a Cluster
+```sh
 kind delete cluster --name=mono
+```
 
-#LISTANDO CLUSTERS
-kind get clusters
+# Setting Kubectl Cluster Context 
 
-=================================
-
-# SETANDO O CONTEXTO PARA O NOVO CLUSTER
- kubectl cluster-info --context kind-mono
+```sh
+kubectl cluster-info --context kind-mono
+```
 
 # VERIFICANDO NODES DO CLUSTER
 kubectl get nodes
