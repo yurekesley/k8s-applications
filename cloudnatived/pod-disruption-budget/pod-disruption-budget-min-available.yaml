@@ -1,0 +1,12 @@
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: demo-pdb
+  namespace: default
+spec:
+  minAvailable: 3
+  selector:
+    matchLabels:
+      app: demo
+
+ 
