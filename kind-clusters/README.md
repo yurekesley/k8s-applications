@@ -39,7 +39,6 @@ chmod +x ./kind
 ```sh
 sudo mv ./kind /usr/local/bin/
 ```
-
 # Creating a K8S Mono Cluster
 - Verify Docker Deamon
 ```sh
@@ -49,7 +48,11 @@ sudo /etc/init.d/docker start
 ```sh
 kind create cluster --name=mono
 ```
-
+# Setting Kubectl Cluster Context 
+```sh
+kubectl cluster-info --context kind-mono
+```
+==============================
 ### Interacting With Your Cluster
 - List Clusters
  ```sh
@@ -59,40 +62,31 @@ kind create cluster --name=mono
 ```sh
 kind delete cluster --name=mono
 ```
-
-# Setting Kubectl Cluster Context 
-
+- Get  a Nodes
 ```sh
-kubectl cluster-info --context kind-mono
+kind get nodes
+```
+=================================================
+
+# Creating Resources
+
+# PODs, Deployments, Services, etc
+```sh
+kubectl apply -f pod.yaml
+kubectl apply -f deployment.yaml
+kubectl apply -f service.yaml 
 ```
 
-# VERIFICANDO NODES DO CLUSTER
-kubectl get nodes
-
-# CRIADO UM POD 
-kubectl apply -f Pod.yaml
-
-# LISTANDO PODS
-kubectl get pods
-
-# ACESSADNO O POD LOCALMENTE
+# Redirect to a POD
+```sh 
 kubectl port-forward pod/numeros-por-extenso 8888:80
+```
+```sh 
 # http://localhost:8888/conversor/por-extenso/
-
-
+```
+# Redirect to a SERVICE
+```sh 
 kubectl port-forward service/numeros-por-extenso-service 8081:https
+```
 
-#Multicluster  
-
-# PODEMOS CRIAR UM CLUSTER COM 6 nodes
-# a cluster with 3 control-plane nodes and 3 workers
-kind: Cluster
-apiVersion: kind.x-k8s.io/v1alpha4
-nodes:
-- role: control-plane
-- role: control-plane
-- role: control-plane
-- role: worker
-- role: worker
-- role: worker
 
