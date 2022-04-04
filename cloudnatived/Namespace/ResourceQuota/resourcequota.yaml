@@ -1,0 +1,10 @@
+## Para Aplicar a Quota de Pods em um namespace, deve-se passar o namespace
+## kubectl apply --namespace demo -f k8s/resourcequota.yaml
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: resourcequota-10-max-pods
+spec:
+  hard:
+    pods: 10
+

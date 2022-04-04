@@ -1,3 +1,6 @@
+# 10% do total de pods obrigatoriamente 
+# devem esperar a criação de novos pods 
+# para então serem migrados por qualquer motivo de vazão
 apiVersion: policy/v1
 kind: PodDisruptionBudget
 metadata:

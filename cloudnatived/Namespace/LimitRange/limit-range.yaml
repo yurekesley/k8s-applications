@@ -1,0 +1,23 @@
+# Qualquer contêiner no namespace que não especifique um
+#limite ou uma solicitação de recursos herdará o valor
+#default de LimitRange.
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: LimitRangeName
+  namespace: cloudnative
+spec:
+  limits:
+  - type: Container
+    default:
+      cpu: 100m
+      memory: 512Mi
+    defaultRequest:
+      cpu: 100m
+      memory: 256Mi
+    max:
+      cpu: 200m
+      memory: 512Mi
+    min:
+      cpu: 100m
+      memory: 256Mi

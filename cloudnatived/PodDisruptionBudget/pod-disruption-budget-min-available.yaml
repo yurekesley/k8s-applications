@@ -1,3 +1,4 @@
+# Mínimo de 3 pods disponíveis para vazão 
 apiVersion: policy/v1
 kind: PodDisruptionBudget
 metadata:
