@@ -1,11 +1,8 @@
-# Qualquer contêiner no namespace que não especifique um
-#limite ou uma solicitação de recursos herdará o valor
-#default de LimitRange.
 apiVersion: v1
 kind: LimitRange
 metadata:
   name: LimitRangeName
-  namespace: cloudnative
+  namespace: solution-x
 spec:
   limits:
   - type: Container

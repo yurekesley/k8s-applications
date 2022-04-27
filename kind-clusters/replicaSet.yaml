@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: numeros-por-extenso
-        image: "yurekesley/numeros-por-extenso:latest"
+        image: "nginx"
         resources:
           limits:
             cpu: 200m
